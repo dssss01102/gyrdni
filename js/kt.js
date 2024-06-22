@@ -36,3 +36,17 @@ eval(
   )
 );
 /*]]>*/
+// Figyeljük az összes billentyű lenyomását a dokumentumban
+document.addEventListener("keydown", function (event) {
+  // Ellenőrizzük, hogy a Ctrl (vagy Command Mac-en) billentyű lenyomva van-e
+  if (event.ctrlKey || event.metaKey) {
+    // Megakadályozzuk az alapértelmezett működést
+    event.preventDefault();
+    event.stopPropagation();
+    // Ha a 'k' betű is lenyomva van, akkor blokkoljuk a műveletet
+    if (event.key === "k") {
+      console.log("Ctrl+K kombináció letiltva!");
+      return false;
+    }
+  }
+});
